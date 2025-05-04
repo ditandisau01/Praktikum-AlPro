@@ -1,0 +1,60 @@
+#Soal 9.1
+def bandingkan_file(file1, file2):
+    with open(file1, 'r') as f1, open(file2, 'r') as f2:
+        lines1 = f1.readlines()
+        lines2 = f2.readlines()
+
+    max_lines = max(len(lines1), len(lines2))
+
+    for i in range(max_lines):
+        baris1 = lines1[i].strip() if i < len(lines1) else ''
+        baris2 = lines2[i].strip() if i < len(lines2) else ''
+
+        if baris1 != baris2:
+            print(f"Perbedaan di baris {i+1}:")
+            print(f"  File 1: {baris1}")
+            print(f"  File 2: {baris2}\n")
+
+# Test Case
+bandingkan_file('file1.txt', 'file2.txt')
+
+#Isi file1.txt
+Python adalah Bahasa pemograman yang sangat menyenangkan
+dan mudah dipahami.
+Namun belum tentu semua orang bisa
+menguasai Python.
+
+#Isi file2.txt
+Python adalah Bahasa pemograman yang sangat menyenangkan
+dan mudah dipelajari.
+Namun belum tentu semua orang bisa
+menguasai Python.
+
+#Soal 9.2
+def soalSederhana(fileName):
+    print("PERTANYAAN")
+
+    with open(fileName, "r") as file:
+        for line in file:
+            if "||" in line:
+                lineTemp = line.strip().split("||")
+                pertanyaan = lineTemp[0].strip()
+                jawabanAsli = lineTemp[1].strip()
+
+                print(pertanyaan)
+                jawabanUser = input("Jawab: ").strip()
+
+                if jawabanUser.lower() == jawabanAsli.lower():
+                    print("Jawaban benar!\n")
+                else:
+                    print("Jawaban salah!\n")
+
+#Test Case
+soalSederhana("soal.txt")
+
+#Isi soal.txt
+1+1 = || 2
+Bendera Indonesia? || Merah Putih
+Kota gudeg adalah: || Yogyakarta
+Komponen PC untuk penyimpanan file adalah... || harddisk
+50 * 20 = || 1000
